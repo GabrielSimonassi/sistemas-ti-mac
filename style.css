@@ -1,0 +1,13 @@
+body {
+    background-color: bisque;
+}
+
+.MAC{
+    background-color: white;
+}
+
+.infoMac{
+    margin: 1em;
+    border: 1px solid black;
+    padding: 10em;
+}
