@@ -5,7 +5,11 @@ async function checkMac(){
     const input = document.getElementById("macAddr");
     const mac = input.value;
     console.log("Mac consultado: " + mac);
-    const info = await axios.get('https://api.macvendors.com/' + mac);
+    const info = await axios.get('https://api.macvendors.com/' + mac, {
+        headers: {
+            'Acess-Control-Allow-Origin': 'true'
+        }
+    });
     console.log(info);
     input.value = "";
 }
