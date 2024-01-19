@@ -3,11 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consulta MAC</title>
-    <link rel="stylesheet" href="style.css">
+    <link
+    type="stylesheet"
+    src="{{url_for('static', filename='style.css')}}">
+    <title>{% block title %}Home{% endblock %}</title>
 </head>
 <body>
     <header id="navbar">
+        <nav>
+            <a href="/">Home</a>
+            <a href="/consulta-mac">Consultar Mac</a>
+        </nav>
         <div class="logo">LOGO</div>
         <div class="container navbar">MENUS</div>
     </header>
@@ -19,17 +25,9 @@
         </div>
     </section>
     <section id="conteudo">
-        <div class="MAC">
-            <div class="macCheck">
-                <input type="text" id="macAddr" placeholder="insira o MAC para consulta">
-                <button id="searchMac">consultar</button>
-            </div>
-            <div class="infoMac">
-                
-            </div>
-        </div>
+        {%block content%}
+        {% endblock %}
     </section>
-    <script src="consultaMac.js"></script>
     <footer id=""version></footer>
 </body>
 </html>
