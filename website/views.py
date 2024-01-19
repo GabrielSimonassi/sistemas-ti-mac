@@ -12,7 +12,7 @@ def macCheck():
     api_data = response.text
     print(api_data)
 
-    return render_template("consultaMac.html")
+    return render_template("consultaMac.html", api_data = api_data)
 
 @views.route('/')
 def home():
