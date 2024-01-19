@@ -1,14 +1,17 @@
 from flask import Blueprint, render_template, request
+import requests
 
 views = Blueprint('views', __name__)
 
-@views.route('/consulta-mac', methods=["GET", "ṔOST"])
+@views.route('/consulta-mac', methods=["GET"])
 def macCheck():
-    data = request.form
-    print(data)
-    # macaddress = "FC-A1-3E-2A-1C-33"
-    # r = requests.get(url="http://api.macvendors.com/%s" %macaddress)
-    # print(r.text)
+    #pega o MAC que se deseja consultar
+    data = request.args.get('macAddr')
+    vendorsURL = f'https://api.macvendors.com/{data}'
+    response = requests.get(vendorsURL)
+    api_data = response.text
+    print(api_data)
+
     return render_template("consultaMac.html")
 
 @views.route('/')

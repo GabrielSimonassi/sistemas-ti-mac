@@ -2,7 +2,7 @@
 {% block title%} Consulta de MAC {% endblock %}
 {% block content %}
 <div class="MAC">
-<form method="GET">
+<form action="/consulta-mac" method="GET">
     <label for="macAddr">Insira o MAC a ser consultado:</label><br>
     <input type="text" id="macAddr" name='macAddr' placeholder="MAC ADDRESS">
     <input type="submit" value="Consultar">
