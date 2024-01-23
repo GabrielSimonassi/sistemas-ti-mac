@@ -15,7 +15,7 @@
                 <div id="formulario">
                     <!-- CHAMA A FUNÇÃO RESOLVE_MAC QUANDO O MAC É ENVIADO -->
                     <form method="POST" action="{{ url_for('busca_mac.resolve_mac') }}" class="form-floating">
-                        <input type="text" class="form-control" id="floatingInputValue" id="meuInput" name="mac_addr" placeholder="00:00:00:00:00:00" required>
+                        <input type="text" class="form-control" id="floatingInputValue" id="meuInput" name="mac_addr" placeholder="" required>
                         <label for="floatingInputValue">Insira aqui o MAC a ser consultado...</label>
                         <input type="submit" value="Iniciar">/
                     </form>
@@ -28,20 +28,22 @@
         </section>
         <br><br>
         <!-- SÓ IMPRIME O ELEMENTO NA TELA SE UMA CONSULTA FOR REALIZADA -->
-        {% if manufacturer: %}
-            <div class="ping container">
-                {{ manufacturer }}
-            </div>
-        {% endif %}
-        <!-- Script que faz a tela de carregamento aparecer e desaparecer-->
-        <script>
+        <section id="mac">
+            {% if manufacturer: %}
+                <div class="mac container">
+                    {{ manufacturer }}
+                </div>
+            {% endif %}
+        </section>
+        <!-- script para tela de carregamento e verificação da entrada do usuário-->
+        <script >
             document.addEventListener("DOMContentLoaded", function() {
-                var iniciarBotao = document.querySelector("input[type='submit']");
-                var carregaImg = document.getElementById("carrega-img");
+            var iniciarBotao = document.querySelector("input[type='submit']");
+            var carregaImg = document.getElementById("carrega-img");
 
-                iniciarBotao.addEventListener("click", function() {
-                    carregaImg.style.display = "block";
-                });
+            iniciarBotao.addEventListener("click", function() {
+                carregaImg.style.display = "block";
+            });
             });
         </script>
 {% endblock %}
